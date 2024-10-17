@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Sabin Neupane">
+    <title>BoxModel</title>
+    <style>
+        .content {
+            width: 100px;
+            height: 100px;
+            border: 2px solid red;
+            box-sizing: content-box;
+            position: relative;
+        }
+
+        .padding {
+            border: 3px dotted blue;
+            width: 150px;
+            height: 150px;
+            padding: 25px;
+            margin: 10px;
+            box-sizing: content-box;
+            position: relative;
+        }
+
+        .border {
+            border: 10px solid black;
+            width: 250px;
+            height: 250px;
+            padding: 30px;
+            box-sizing: content-box;
+            position: relative;
+        }
+
+        .margin {
+            margin: 20px;
+            border: black 2px solid;
+            padding: 60px;
+            width: 300px;
+            height: 300px;
+            position: relative;
+            box-sizing: content-box;
+        }
+
+        .margin p, .border p, .padding p, .content p {
+            position: absolute;
+            margin: 0;
+            font-size: 14px;
+            padding: 0px 5px;
+            background-color: white;
+        }
+
+        .margin p {
+            top: 0px;
+            left: 10px;
+        }
+
+        .border p {
+            top: 0px;
+            left: 10px;
+        }
+
+        .padding p {
+            top: 10px;
+            left: 10px;
+        }
+
+        .content p {
+            top: 0px;
+            left: 10px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="margin">
+        <p>Margin</p>
+        <div class="border">
+            <p>Border</p>
+            <div class="padding">
+                <p>Padding</p>
+                <div class="content">
+                    <p>Content</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

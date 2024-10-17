@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object and Constructor</title>
+</head>
+<body onload="displayPerson()">
+    <div id="display"></div>
+    <script type="text/javascript">
+        // Object constructor
+        function Person(firstname, lastname) {
+            this.firstname = firstname;
+            this.lastname = lastname;
+
+            // Method to change the lastname
+            this.changeLastname = function(newlastname) {
+                this.lastname = newlastname;
+            };
+        }
+
+        // Create instances
+        var father = new Person("Shyam", "Karki");
+        var mother = new Person("Sita", "Acharya");
+
+        // Function to display names
+        function displayPerson() {
+            // Display before changing the lastname
+            document.getElementById("display").innerHTML = 
+                "<br>Before function call:<br>Father: " + father.firstname + " " + father.lastname + 
+                "<br>Mother: " + mother.firstname + " " + mother.lastname;
+
+            // Change the last name
+            mother.changeLastname("Karki");
+
+            // Display after changing the lastname
+            document.getElementById("display").innerHTML += 
+                "<br><br>After function call:<br>Father: " + father.firstname + " " + father.lastname + 
+                "<br>Mother: " + mother.firstname + " " + mother.lastname;
+        }
+    </script>
+</body>
+</html>

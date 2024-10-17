@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Addition of Prime</title>
+</head>
+<body>
+    <input type="number" id="num1" placeholder="First Number"><br>
+    <input type="number" id="num2" placeholder="Second Number"><br>
+    <input type="button" value="Add" onclick="addition()">
+    <div id="output"></div>
+
+    <script type="text/javascript">
+        function isPrime(num) {
+            if (num <= 1) return false;
+            for (var i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) return false; // Not prime
+            }
+            return true; // Prime
+        }
+
+        function addition() {
+            var num1 = parseInt(document.getElementById("num1").value);
+            var num2 = parseInt(document.getElementById("num2").value);
+
+            if (isPrime(num1) && isPrime(num2)) {
+                var sum = num1 + num2;
+                document.getElementById("output").innerHTML = "<h3>Sum of " + num1 + " and " + num2 + " is " + sum + "</h3>";
+            } else {
+                document.getElementById("output").innerHTML = "<h3>Error! Both numbers should be prime for addition.</h3>";
+            }
+        }
+    </script>
+</body>
+</html>

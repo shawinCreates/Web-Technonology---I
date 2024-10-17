@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Sabin Neupane">
+    <title>Labwork Part 1</title>
+    <style>
+        .info label {
+            color: blue;
+            font-weight:bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>This is heading 1</h1>
+    <h2>This is heading 2</h2>
+    <h3>This is heading 3</h3>
+    <h4>This is heading 4</h4>
+    <h5>This is heading 5</h5>
+    <h6>This is heading 6</h6>
+
+    <br><br><br>
+
+    <pre>
+        Hello, World! This 
+            is a
+        <i>Formatted paragraph</i> in my own
+        style done using html tag.
+                            <b><i>-Web Tech Lab</i></b>
+    </pre>
+    
+    <br><br>
+
+    <p>Play Oppenheimer 2023 Movie</p>
+    <video width="400px" height="300px" controls>
+        <source src="Oppenheimer.2023.1080p.BluRay.DD5.1.x264-GalaxyRG.mkv" type="video/mp4">
+    </video>
+
+    <br>
+
+    <p>Play Music Dancing by Aaron Smith</p>
+    <audio width="400px" controls>
+        <source src="Aaron Smith - Dancin (KRONO Remix) - Lyrics.mp3" type="audio/mp3">
+    </audio>
+
+    <br><br>
+
+    <figure>
+        <img src="New-07.jpg" alt="comic" width="350px" height="700px">
+        <figcaption>Funny Comic</figcaption>
+    </figure>
+
+    <br><br>
+
+    <table border="1">
+        <caption><h4> Student Result</h4></caption>
+        <tr>
+            <th>Name</th>
+            <th>Subject</th>
+            <th>Marks</th>
+        </tr>
+
+        <tr>
+            <td rowspan="2">Hilary</td>
+            <td>Advanced Web</td>
+            <td>75</td>
+        </tr>
+
+        <tr>
+            <td>OS</td>
+            <td>60</td>
+        </tr>
+
+        <tr>
+            <td rowspan="2">Larry</td>
+            <td>Advanced Web</td>
+            <td>80</td>
+        </tr>
+
+        <tr>
+            <td>OS</td>
+            <td>75</td>
+        </tr>
+
+        <tr>
+            <td colspan="3">Total Average = 72.5</td>
+        </tr>
+    </table>
+
+    <table border="1">
+        <caption><h4>Sales-Profit</h4></caption>
+        <tr>
+            <th colspan="2">October</th>
+            <th colspan="2">Novemember</th>
+        </tr>
+
+        <tr>
+            <td>Sales</td>
+            <td>Profit</td>
+            <td>Sales</td>
+            <td>Profit</td>
+        </tr>
+
+        <tr>
+            <td>&dollar;20000</td>
+            <td>&dollar;50000</td>
+            <td>&dollar;30000</td>
+            <td>&dollar;70000</td>
+        </tr>
+
+        <tr>
+            <td colspan="4"><b>Novemember was more productive</b></td>
+        </tr>
+    </table>
+
+    <br><br>
+
+    <table border="1">
+        <thead>
+            <th>Year</th>
+            <th>Subject</th>
+            <th>Date</th>
+            <th>Time</th>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td rowspan="5">First Terminal Examination 2081</td>
+                <td>BIT 251 WT-I</td>
+                <td>2081-05-05</td>
+                <td>11:00 AM - 2:00 PM</td>
+            </tr>
+                
+            <tr>
+                <td>BIT 252 AI</td>
+                <td>2081-05-06</td>
+                <td>11:00 AM - 2:00 PM</td>
+            </tr>
+
+            <tr>
+                <td>BIT 253 SAD</td>
+                <td>2081-05-07</td>
+                <td>11:00 AM - 2:00 PM</td>
+            </tr>
+
+            <tr>
+                <td>BIT 254 NDC</td>
+                <td>2081-05-09</td>
+                <td>11:00 AM - 2:00 PM</td>
+            </tr>
+
+            <tr>
+                <td>BIT 255 OR</td>
+                <td>2081-05-11</td>
+                <td>11:00 AM - 2:00 PM</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br><br>
+
+    <table border="1">
+        <thead>
+            <td colspan="6">First Assessment Routine</td>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td rowspan="3">Academic Year 2024</td>
+                <td><b>Batch/Time</b></td>
+                <td>9:00</td>
+                <td>10:00</td>
+                <td>11:00</td>
+                <td>12:00</td>
+            </tr>
+
+            <tr>
+                <td>BIM</td>
+                <td>WT</td>
+                <td colspan="2">Break</td>
+                <td>Java</td>
+            </tr>
+
+            <tr>
+                <td>BIT</td>
+                <td>DAA</td>
+                <td>OOP</td>
+                <td colspan="2">Break</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br><br>
+
+    <table border="1">
+        <caption><b>Nested Tables</b></caption>
+        <thead>
+            <tr>
+                <th>Header Column 1</th>
+                <th>Header Column 2</th>
+                <th>Header Column 3</th>
+                <th>Header Column 4</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>Row 2 - Item 1</td>
+                <td>Row 2 - Item 2</td>
+                <td rowspan="2"><h4>Row 2 - Nested table 1</h4>
+                    <table border="1">
+                        <tr>
+                            <th>Row 1 header</th>
+                            <td>item</td>
+                        </tr>
+                        <tr>
+                            <th>Row 2 header</th>
+                            <td>item</td>
+                        </tr>
+                        <tr>
+                            <th>Row 3 header</th>
+                            <td>item</td>
+                        </tr>
+                    </table>
+                </td>
+                <td>Row 2 - Item 4 <br>A second line</td>
+            </tr>
+
+            <tr>
+                <td><h4>Row 3 - Nested table 2</h4>
+                    <table border="1">
+                        <tr>
+                            <th>Row 1 header</th>
+                            <td>item</td>
+                        </tr>
+                        <tr>
+                            <th>Row 2 header</th>
+                            <td>item</td>
+                        </tr>
+                    </table>
+                </td>
+                <td>Row 3 - Item 2</td>
+                <td rowspan="2">Row 3 -Item 3</td>
+            </tr>
+
+            <tr>
+                <td>Row 4 - Item 1</td>
+                <td>Row 4 - Item 2</td>
+                <td>Row 4 - Item 3</td>
+            </tr>
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <td colspan="4">Row 5 - Last row of outer table</td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <br><br>
+
+    <form action="submit.html">
+        <fieldset>
+            <legend>Personal car information </legend>
+            <label>Full Name:</label>
+            <input type="text" placeholder="Your fullname"><br><br>
+
+            <label>Current City:</label>
+            <input type="text" placeholder="Where are you located?"><br><br>
+
+            <label>Email:</label>
+            <input type="email" placeholder="example@gmail.com"><br><br>
+
+            <label>Phone:</label>
+            <input type="number" placeholder="98********" pattern="98[0-9]{8}"><br><br>
+
+            <label>Gender:</label>
+            <input type="radio" name="Gender" value="Male">
+            <label>Male</label>
+            <input type="radio" name="Gender" value="Female">
+            <label>Female</label><br><br>
+
+            <label>Birthday: </label>
+            <input type="date"><br><br>
+
+            <label>Choose Car Company:</label>
+            <select name="Car Company">
+                <option value="Tesla">Tesla</option>
+                <option value="Lamborgini">Lamborgini</option>
+                <option value="Ferrai">Ferrai</option>
+                <option value="Ford">Ford</option>
+                <option value="Mustang">Mustang</option>
+                <option value="Shelby">Shelby</option>
+                <option value="Camero">Camero</option>
+                <option value="Dodge">Dodge</option>
+            </select><br><br>
+
+            <label>Additional Information:</label> <br>
+            <textarea name="addtionalInfo" cols="30" rows="10"></textarea> <br><br>
+
+            <input type="checkbox">
+            <label>I agree to Terms and Conditions.</label><br><br>
+
+            <input type="submit" value="Submit">
+        </fieldset>
+    </form>
+
+    <br><br>
+
+    <form action="submit.html">
+        <fieldset>
+            <legend>Survey Form</legend>
+            <div class="info">
+                <h3>Contact Information</h3>
+                <label for="email">Email Address: </label>
+                <input type="email" name="email" id="email"><br>
+
+                <label for="name">First Name: </label>
+                <input type="text"><br>
+
+                <label for="name">Last Name: </label>
+                <input type="text"><br>
+            </div>
+
+            <div class="info"> 
+                <h3>Geographical Information</h3>
+                <label for="address">State: </label>
+                <input type="text"><br>
+
+                <label for="address">Zip Code: </label>
+                <input type="text"><br>
+            </div>
+
+            <h3>How did you hear about us?</h3>
+            <input type="checkbox" name="traffic">
+            <label for="traffic">websearch</label><br>
+            <input type="checkbox" name="traffic">
+            <label for="traffic">facebook</label><br>
+            <input type="checkbox" name="traffic">
+            <label for="traffic">twitter</label><br>
+            <input type="checkbox" name="traffic">
+            <label for="traffic">email message</label><br>
+            
+            <h3>Any Suggestion</h3>
+            <textarea id="suggestion" cols="30" rows="10"></textarea><br>
+
+            <h4>Thank you for taking our survey.</h4>
+            <input type="submit">
+            <input type="reset">
+        </fieldset>
+    </form>
+
+    <br><br>
+
+    <form action="submit.html">
+        <fieldset>
+            <legend>Newsletter</legend>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Username" required autofocus><br><br>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Password" required><br><br>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="yourmail@mail.com" autocomplete="email" required><br><br>
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" min="18" max="100"><br><br>
+
+            <label>Gender:</label><br>
+            <input type="radio" id="male" name="gender" value="male" required>
+            <label for="male">Male</label><br>
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Female</label><br>
+            <input type="radio" id="other" name="gender" value="other">
+            <label for="other">Other</label><br><br>
+
+            <label for="subscribe">Subscribe to newsletter:</label>
+            <input type="checkbox" id="subscribe" name="subscribe" checked><br><br>
+
+            <label for="country">Country:</label>
+            <select id="country" name="country" required>
+                <option value="usa">United States</option>
+                <option value="canada">Canada</option>
+                <option value="uk">United Kingdom</option>
+                <option value="australia">Australia</option>
+            </select><br><br>
+
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required><br><br>
+
+            <label for="disabled-input">Disabled Field:</label>
+            <input type="text" id="disabled-input" name="disabled-input" value="Can't edit this" disabled><br><br>
+
+            <label for="bio">Short Bio:</label><br>
+            <textarea id="bio" name="bio" rows="4" cols="50" maxlength="200" placeholder="Tell us a bit about yourself..."></textarea><br><br>
+
+            <button type="submit">Register</button>
+
+        </fieldset>
+    </form>
+
+    <br><br>
+
+    <p>Unordered List</p>
+    <ul>
+        <li>Apple</li>
+        <li>Banana</li>
+        <li>Guava</li>
+        <li>Papaya</li>
+    </ul>
+
+    <p>Ordered List</p>
+    <ol type="1">
+        <li>Apple</li>
+        <li>Banana</li>
+        <li>Guava</li>
+        <li>Papaya</li>
+    </ol>
+
+    <p>Descriptive List</p>
+    <dl>
+        <dt>Coffee</dt>
+        <dd>-black hot drink</dd>
+
+        <dt>Milk</dt>
+        <dd>-white cold drink</dd>
+    </dl>
+</body>
+</html>

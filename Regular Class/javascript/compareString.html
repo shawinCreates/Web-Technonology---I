@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compare String</title>
+</head>
+<body>
+    <input type="text" id="string1" placeholder="Enter First String"><br>
+    <input type="text" id="string2" placeholder="Enter Second String"><br>
+    <input type="button" value="Compare String" onclick="compareString()">
+    <div id="output"></div>
+
+    <script type="text/javascript">
+        function compareString() {
+            var str1 = document.getElementById("string1").value;
+            var str2 = document.getElementById("string2").value;
+
+            if(str1 === str2) {
+                document.getElementById("output").innerHTML = "<h4>Both Strings are Equal.</h4>";
+            }
+            else {
+                document.getElementById("output").innerHTML = "<h4>Both Strings are not Equal.</h4>";
+            }
+        }
+    </script>
+</body>
+</html>

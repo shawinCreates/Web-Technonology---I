@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferrari Traffic Light Simulation</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+            background-color: #a0d1f2; /* Sky blue background */
+        }
+    </style>
+</head>
+<body>
+
+<canvas id="simulationCanvas" width="800" height="400"></canvas>
+
+<script>
+    const canvas = document.getElementById('simulationCanvas');
+    const ctx = canvas.getContext('2d');
+
+    const roadY = 200;
+    const laneHeight = 40;
+    const checkpointX = 600;
+    let ferrariX = 0;
+
+    async function* trafficLight() {
+        while (true) {
+            yield 'GREEN';
+            await sleep(4000);
+            yield 'YELLOW';
+            await sleep(2000);
+            yield 'RED';
+            await sleep(4000);
+        }
+    }
+
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    function drawRoad() {
+        // Draw the road background
+        ctx.fillStyle = '#333333';
+        ctx.fillRect(0, roadY, canvas.width, laneHeight * 2);
+        
+        // Draw lane divider
+        ctx.strokeStyle = '#FFFFFF';
+        ctx.setLineDash([20, 20]);  // dashed line
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.moveTo(0, roadY + laneHeight);
+        ctx.lineTo(canvas.width, roadY + laneHeight);
+        ctx.stroke();
+        ctx.setLineDash([]);
+    }
+
+    function drawFerrari(x) {
+        // Draw the car body
+        ctx.fillStyle = '#FF0000';  // Ferrari red
+        ctx.beginPath();
+        ctx.moveTo(x, roadY + 30); // Front bumper
+        ctx.lineTo(x + 15, roadY + 15); // Hood slope
+        ctx.lineTo(x + 45, roadY + 15); // Windshield
+        ctx.lineTo(x + 60, roadY + 30); // Roof slope
+        ctx.lineTo(x + 70, roadY + 30); // Rear bumper
+        ctx.lineTo(x + 60, roadY + 45); // Rear
+        ctx.lineTo(x + 10, roadY + 45); // Side skirt
+        ctx.closePath();
+        ctx.fill();
+
+        // Draw the windows
+        ctx.fillStyle = '#000000';  // Window color
+        ctx.fillRect(x + 20, roadY + 18, 25, 12); // Side window
+
+        // Draw the wheels
+        ctx.fillStyle = '#000000';  // Wheel color
+        ctx.beginPath();
+        ctx.arc(x + 15, roadY + 45, 7, 0, Math.PI * 2); // Front wheel
+        ctx.arc(x + 55, roadY + 45, 7, 0, Math.PI * 2); // Rear wheel
+        ctx.fill();
+    }
+
+    function drawCheckpoint() {
+        // Draw the checkpoint (stop line)
+        ctx.fillStyle = '#FF0000';  // Red stop line
+        ctx.fillRect(checkpointX, roadY, 5, laneHeight * 2);
+    }
+
+    function drawTrafficLight(color) {
+        const lightX = checkpointX + 20;
+        const lightY = roadY - 100;
+        
+        // Draw traffic light pole
+        ctx.fillStyle = '#000000';
+        ctx.fillRect(lightX + 10, lightY + 50, 10, 50);
+        
+        // Draw traffic light box
+        ctx.fillStyle = '#333333';
+        ctx.fillRect(lightX, lightY, 30, 90);
+        
+        // Draw lights
+        ctx.fillStyle = '#FF0000';  // Red light
+        ctx.beginPath();
+        ctx.arc(lightX + 15, lightY + 15, 10, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.fillStyle = '#FFFF00';  // Yellow light
+        ctx.beginPath();
+        ctx.arc(lightX + 15, lightY + 45, 10, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.fillStyle = '#00FF00';  // Green light
+        ctx.beginPath();
+        ctx.arc(lightX + 15, lightY + 75, 10, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Highlight the active light
+        ctx.fillStyle = color === 'GREEN' ? '#00FF00' : '#333333';
+        ctx.beginPath();
+        ctx.arc(lightX + 15, lightY + 75, 10, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.fillStyle = color === 'YELLOW' ? '#FFFF00' : '#333333';
+        ctx.beginPath();
+        ctx.arc(lightX + 15, lightY + 45, 10, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.fillStyle = color === 'RED' ? '#FF0000' : '#333333';
+        ctx.beginPath();
+        ctx.arc(lightX + 15, lightY + 15, 10, 0, Math.PI * 2);
+        ctx.fill();
+    }
+
+    async function ferrariSystem() {
+        const light = trafficLight();
+        let currentLight = (await light.next()).value;
+        drawScene(ferrariX, currentLight);
+
+        while (true) {
+            ferrariX += 2;
+            drawScene(ferrariX, currentLight);
+
+            if (ferrariX >= checkpointX - 70) {
+                console.log(`Ferrari has reached the checkpoint. Traffic light is ${currentLight}.`);
+                if (currentLight === 'RED') {
+                    console.log("Ferrari stops. Waiting for the light to turn GREEN...");
+                    while (currentLight !== 'GREEN') {
+                        currentLight = (await light.next()).value;
+                        drawScene(ferrariX, currentLight);
+                        await sleep(1000);
+                    }
+                    console.log("Light is GREEN. Ferrari goes!");
+                } else if (currentLight === 'YELLOW') {
+                    console.log("Ferrari slows down for YELLOW light.");
+                    await sleep(2000);
+                    currentLight = (await light.next()).value;
+                }
+            }
+
+            if (ferrariX >= canvas.width) {
+                ferrariX = 0;
+                currentLight = (await light.next()).value;
+            }
+
+            await sleep(30);  // Control the Ferrari speed
+        }
+    }
+
+    function drawScene(ferrariX, lightColor) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        drawRoad();
+        drawFerrari(ferrariX);
+        drawCheckpoint();
+        drawTrafficLight(lightColor);
+    }
+
+    ferrariSystem();
+
+</script>
+
+</body>
+</html>

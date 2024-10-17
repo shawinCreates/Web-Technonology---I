@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comapre Date</title>
+</head>
+<body onload="compareDate()">
+    <script type="text/javascript">
+        function compareDate(){
+            var today = new Date();
+            var setDate = new Date();
+            setDate.setFullYear(2015,2,15);
+
+            if(today < setDate) {
+                alert("Today is before feb 15, 2015");
+            }
+            else {
+                alert("Today is after feb 15, 2015");
+            }
+        }
+    </script>
+</body>
+</html>

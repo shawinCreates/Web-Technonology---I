@@ -1,0 +1,31 @@
+<html>
+<head>
+<script type="text/javascript">
+function setCookie() {
+var name = "cookieName";
+var value = "Sabin Neupane";
+var ed = new Date();
+ed.setDate(ed.getDate() + 2);
+// document.write(ed.toGMTString());
+document.cookie = name + "=" + value + "; expires=" + ed.toGMTString() + "; path=/";
+// "; path=/": This part sets the path for which the cookie is valid.
+// In this case, the cookie is valid for the entire website since the path is set to "/"
+alert("Cookie Set");
+}
+function getCookie() {
+var len = document.cookie.length;
+var ind = document.cookie.indexOf("cookieName=");
+if (ind == -1) {
+alert("Cookie not found");
+} else {
+var name = document.cookie.substring(ind + 11, len);
+alert("Welcome: " + name);
+}
+}
+</script>
+</head>
+<body>
+<input type="button" value="setcookie" onclick="setCookie()">
+<input type="button" value="getcookie" onclick="getCookie()">
+</body>
+</html>

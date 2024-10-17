@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Sabin Neupane">
+    <title>Table structure template</title>
+    <style>
+        thead{
+            background-color: rgb(220, 214, 214);
+            font-size: 25px;
+            height: 50px;
+        }
+
+        tfoot {
+            background-color: black;
+            color: white;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        #sidebar {
+            background-color: rgb(220, 214, 214);
+        }
+
+        img {
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <th colspan="2">Welcome to My Website</th>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Section</a></li>
+                    </ul>
+
+                    <p>This is the main context area. You can find main content here.</p>
+                </td>
+
+                <td>
+                    <img src="https://images.pexels.com/photos/27372391/pexels-photo-27372391/free-photo-of-a-person-standing-on-top-of-a-mountain-with-rocks.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="this is image section">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <img src="https://images.pexels.com/photos/27845119/pexels-photo-27845119/free-photo-of-a-blurry-photo-of-trees-in-the-forest.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="this is next image section">
+                </td>
+                <td id="sidebar">
+                    <h2>Sidebar</h2>
+                    <p>This is a sidebar paragraph. It contains a image description</p>
+                </td>
+            </tr>
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <td colspan="2">
+                    <h4>&copy; 2023 All rights reserved&TRADE;</h4>
+                    <p>Reach out to us for any inquiries or feedback</p>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>

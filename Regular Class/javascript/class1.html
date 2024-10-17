@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Sabin Neupane">
+    <title>Javascript practice</title>
+</head>
+<body>
+    <script>
+        function sum() {
+            var num1 = 6;
+            var num2 = 24;
+
+            if(num1 % 2 == 0 && num2 % 2 == 0) {
+                var s = num1 + num2;
+                document.write("sum of given number is ", s);
+            }
+            else {
+                document.write("Difference of given number is " + (num1 - num2));
+            }
+        }
+
+        sum();
+
+        reverseString();
+        function reverseString() {
+            var str = prompt("Enter a string: ");
+            var rev = str.reverse();
+
+            document.write("Reverse string of given string is ", rev[i]);
+        }
+    </script>
+</body>
+</html>

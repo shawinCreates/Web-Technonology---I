@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Handling</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var txt = "";
+        
+        function message() {
+            try {
+                addAlert("Welcome guest!");
+                alert("test");
+            } catch (err) {
+                txt = "There was error in this page.\n";
+                txt += "Click OK to continue viewing this page\n";
+                txt += "or Cancel to return to the home page.";
+                if(confirm(txt)) {
+                    document.write(err);
+                }
+            }
+        }
+
+        document.body.onload = message;
+    </script>
+</body>
+</html>
