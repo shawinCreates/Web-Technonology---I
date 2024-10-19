@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Sabin Neupane">
+    <title>Classes and Inheritances</title>
+</head>
+<body>
+    <h2>Car Details</h2>
+    <div id="demo"></div>
+
+    <script>
+        class car {
+            constructor (model, makeYear) {
+                this.model = model;
+                this.makeYear = makeYear;
+            }
+        }
+
+        class brand extends car {
+            constructor (brand, model, makeYear) {
+                super(model, makeYear);
+                this.brand = brand;
+            }
+            
+            present() {
+                return 'Brand: ' + this.brand;
+            }
+
+            getCarAge() {
+                const currentYear = new Date().getFullYear();
+                return currentYear - this.makeYear;
+            }
+
+            show() {
+                return `<h4> ${this.present()} <br> Model: ${this.model} <br> Age: ${this.getCarAge()} years old <br></h4>`
+            }
+        }
+
+        let myCar = new brand("Ford", "Shelby", 1961);
+
+        document.getElementById("demo").innerHTML = myCar.show();
+    </script>
+</body>
+</html>
