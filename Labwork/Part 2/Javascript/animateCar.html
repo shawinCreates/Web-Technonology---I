@@ -46,19 +46,16 @@
     <script>
         $(document).ready(function() {
             let car = $("#car");
-            let animationSpeed = 2000; // 2 seconds to move fully forward or reverse
+            let animationSpeed = 2000;
 
-            // Move the car forward
             $("#forward").click(function() {
                 car.stop().animate({left: '+=500px'}, animationSpeed);
             });
 
-            // Stop the car
             $("#stop").click(function() {
-                car.stop(); // Stops the current animation
+                car.stop(); 
             });
 
-            // Move the car in reverse
             $("#reverse").click(function() {
                 car.stop().animate({left: '-=500px'}, animationSpeed);
             });
