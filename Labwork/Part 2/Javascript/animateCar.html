@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Sabin Neupane">
+    <title>Car Animation with jQuery</title>
+
+    <style>
+        #car {
+            position: relative;
+            margin-top: 50px;
+        }
+
+        #road {
+            width: 100%;
+            height: 150px;
+            background-color: lightgray;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #controlButtons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-evenly;
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <h2>Car Animation (Forward, Stop, Reverse)</h2>
+
+    <div id="road">
+        <div id="car"><img src="car.png" alt="car" width="150px" height="50px"></div>
+    </div>
+
+    <div id="controlButtons">
+        <button id="forward">Move Forward</button>
+        <button id="stop">Stop</button>
+        <button id="reverse">Move Reverse</button>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            let car = $("#car");
+            let animationSpeed = 2000; // 2 seconds to move fully forward or reverse
+
+            // Move the car forward
+            $("#forward").click(function() {
+                car.stop().animate({left: '+=500px'}, animationSpeed);
+            });
+
+            // Stop the car
+            $("#stop").click(function() {
+                car.stop(); // Stops the current animation
+            });
+
+            // Move the car in reverse
+            $("#reverse").click(function() {
+                car.stop().animate({left: '-=500px'}, animationSpeed);
+            });
+        });
+    </script>
+
+</body>
+</html>
