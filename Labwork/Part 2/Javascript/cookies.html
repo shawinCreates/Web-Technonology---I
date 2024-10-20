@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Sabin Neupane">
+    <title>Cookie</title>
+</head>
+<body>
+
+    <h2>Set and Display Cookies</h2>
+
+    <label for="name">Name:</label>
+    <input type="text" id="name"><br><br>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password"><br><br>
+
+    <button onclick="setCookie()">Set Cookie</button>
+    <button onclick="getCookie()">Get Cookie</button>
+
+    <p id="cookieDisplay"></p>
+
+    <script>
+        function setCookie() {
+            let name = document.getElementById("name").value;
+            let password = document.getElementById("password").value;
+
+            document.cookie = "name=" + name + "; expires=" + (7 * 24 * 60 * 60) + "; path=/";
+            document.cookie = "password=" + password + "; expires=" + (7 * 24 * 60 * 60) + "; path=/";
+
+            alert("Cookies have been set!");
+        }
+
+        function getCookie() {
+            let cookies = document.cookie;
+            let cookieArray = cookies.split("; ");
+            let cookieObject = {};
+
+            cookieArray.forEach(cookie => {
+                let [key, value] = cookie.split("=");
+                cookieObject[key] = value;
+            });
+
+            let displayText = "Name: " + (cookieObject.name || "Not Set") + "<br>" +
+                              "Password: " + (cookieObject.password || "Not Set");
+
+            document.getElementById("cookieDisplay").innerHTML = displayText;
+        }
+    </script>
+</body>
+</html>
