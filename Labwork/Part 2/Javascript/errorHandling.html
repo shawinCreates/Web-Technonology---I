@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Sabin Neupane">
+    <title>Try and Catch Scenerio</title>
+
+    <script>
+        function errorHandlingExample() {
+            let numerator = 24;
+            let denominator = 0;
+
+            try {
+                if(denominator == 0) {
+                    throw new Error("Cannot perform division by zero");
+                }
+
+                let result = numerator/denominator;
+                document.write("Result:" + result + "<br>");
+            }
+            catch(error) {
+                document.write("Error: " + error.message + "<br>");
+            }
+            finally {
+                document.write("Finally code block executed");
+            }
+        }
+    </script>
+</head>
+<body>
+    <script>
+        document.body.onload = errorHandlingExample;
+    </script>
+</body>
+</html>
