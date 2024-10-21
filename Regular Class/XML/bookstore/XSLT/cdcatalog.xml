@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="cdcatalog.xsl"?>
+
+<catalog>
+    <cd>
+        <title>Back in Black</title>
+        <artist>AC/DC</artist>
+        <price>10.99</price>
+        <genre>Rock</genre>
+    </cd>
+    <cd>
+        <title>The Dark Side of the Moon</title>
+        <artist>Pink Floyd</artist>
+        <price>15.50</price>
+        <genre>Rock</genre>
+    </cd>
+    <cd>
+        <title>Thriller</title>
+        <artist>Michael Jackson</artist>
+        <price>12.99</price>
+        <genre>Pop</genre>
+    </cd>
+    <cd>
+        <title>Abbey Road</title>
+        <artist>The Beatles</artist>
+        <price>20.00</price>
+        <genre>Rock</genre>
+    </cd>
+    <cd>
+        <title>Rumours</title>
+        <artist>Fleetwood Mac</artist>
+        <price>18.99</price>
+        <genre>Rock</genre>
+    </cd>
+</catalog>

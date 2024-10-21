@@ -1,0 +1,12 @@
+<images>
+  <image>
+    <url>img/4.jpeg</url>
+  </image>
+  <image>
+    <url>img/5.jpeg</url>
+  </image>
+  <image>
+    <url>img/6.jpeg</url>
+  </image>
+  <!-- more images can be added here -->
+</images>

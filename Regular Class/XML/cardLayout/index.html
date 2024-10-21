@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Processing from XML with Delays</title>
+    <style>
+        button{
+            margin-left: 50%;
+            height: 100px;
+            width: 200px;
+            font-size: 40px;
+        }
+        #imageCards {
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            gap: 20px;
+        }
+
+        .card {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="changeXML()">Change XML</button>
+    <div id="imageCards"></div>
+
+    <script>
+        let currentXML = "image1.xml";
+
+        function loadXML() {
+            const xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    const xmlDoc = xhr.responseXML;
+                    processXML(xmlDoc);
+                }
+            };
+            xhr.open("GET", currentXML, true);
+            xhr.send();
+        }
+
+        function processXML(xmlDoc) {
+            const imageNodes = xmlDoc.getElementsByTagName("image");
+            const imageCardsContainer = document.getElementById('imageCards');
+
+            for (let i = 0; i < imageNodes.length; i++) {
+                const imageUrl = imageNodes[i].getElementsByTagName("url")[0].textContent;
+
+                setTimeout(() => {
+                    simulateImageProcessing(imageUrl, imageCardsContainer);
+                }, i * 500);
+            }
+        }
+
+        function simulateImageProcessing(imageUrl, container) {
+            const newImage = document.createElement('img');
+            newImage.src = imageUrl;
+
+            const imageCard = document.createElement('div');
+            imageCard.classList.add('card');
+            imageCard.appendChild(newImage);
+
+            container.appendChild(imageCard);
+        }
+
+        function changeXML() {
+            // Change the XML file path to another XML file
+            currentXML = "image2.xml";
+            // Clear the current images
+            document.getElementById('imageCards').innerHTML = "";
+            // Load and process images from the new XML file
+            loadXML();
+        }
+
+        loadXML();
+    </script>
+</body>
+</html>
