@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Sabin Neupane">
+    <title>AJAX File Load Example</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <h1>AJAX File Load Example</h1>
+    <button id="loadContent">Load Content</button>
+
+    <div id="contentDiv">
+        <!-- Content from the file will be loaded here -->
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $("#loadContent").click(function() {
+                $.ajax({
+                    url: "content.html", // The file to load
+                    method: "GET",
+                    dataType: "html",
+                    success: function(response, status, xhr) {
+                        if (xhr.status === 200) {
+                            // Insert the file content into the div
+                            $("#contentDiv").html(response);
+                        }
+                    },
+                    error: function(xhr) {
+                        // Handle errors
+                        if (xhr.status !== 200) {
+                            $("#contentDiv").html("<p>Error loading content. Status: " + xhr.status + "</p>");
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
