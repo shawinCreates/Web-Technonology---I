@@ -1,0 +1,29 @@
+{
+    "name": "Rajesh Hamal",
+    "age": 55,
+    "profession": "Actor",
+    "email": "rajesh.hamal@example.com",
+    "address": {
+        "street": "123 Bollywood Lane",
+        "city": "Kathmandu",
+        "country": "Nepal"
+    },
+    "skills": ["Acting", "Dancing", "Public Speaking"],
+    "experience": [
+        {
+            "company": "Film Industry",
+            "role": "Lead Actor",
+            "years": "1990-2020"
+        },
+        {
+            "company": "Television",
+            "role": "TV Show Host",
+            "years": "2010-2020"
+        }
+    ],
+    "education": {
+        "degree": "Bachelor of Arts",
+        "university": "Tribhuvan University",
+        "graduationYear": 1985
+    }
+}
