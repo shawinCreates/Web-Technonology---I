@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Sabin Neupane">
+    <title>Rajesh Hamal's CV - AJAX Example</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <h1>Rajesh Hamal's CV</h1>
+    <button id="loadCV">Load CV</button>
+
+    <div class="cv-container" id="cvContent">
+        <!-- CV Content will be displayed here dynamically -->
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $("#loadCV").click(function() {
+                $.ajax({
+                    url: "cv.json", 
+                    method: "GET",
+                    dataType: "json",
+                    success: function(data) {
+                        let cvHtml = `
+                            <h2>${data.name}</h2>
+                            <ul>
+                                <li><strong>Age:</strong> ${data.age}</li>
+                                <li><strong>Profession:</strong> ${data.profession}</li>
+                                <li><strong>Email:</strong> <a href="mailto:${data.email}">${data.email}</a></li>
+                                <li><strong>Address:</strong> ${data.address.street}, ${data.address.city}, ${data.address.country}</li>
+                            </ul>
+                            <h3>Skills</h3>
+                            <ul>
+                                ${data.skills.map(skill => `<li>${skill}</li>`).join('')}
+                            </ul>
+                            <h3>Experience</h3>
+                            <ul>
+                                ${data.experience.map(exp => `<li><strong>${exp.role}</strong> at ${exp.company} (${exp.years})</li>`).join('')}
+                            </ul>
+                            <h3>Education</h3>
+                            <ul>
+                                <li><strong>Degree:</strong> ${data.education.degree}</li>
+                                <li><strong>University:</strong> ${data.education.university}</li>
+                                <li><strong>Graduation Year:</strong> ${data.education.graduationYear}</li>
+                            </ul>
+                        `;
+                        // Insert the generated HTML into the DOM
+                        $("#cvContent").html(cvHtml);
+                    },
+                    error: function() {
+                        alert("Error loading CV data.");
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
