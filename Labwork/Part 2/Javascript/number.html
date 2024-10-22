@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Sabin Neupane">
+    <title>Reverse, Palindrome, Armstrong</title>
+</head>
+<body>
+    <input type="number" id="num" placeholder="Enter a Number">
+    <input type="button" value="Check" onclick="checkNumber()">
+    <div id="output"></div>
+
+    <script type="text/javascript">
+        function checkNumber(){
+            var num = parseInt(document.getElementById("num").value);
+            var originalNum = num;
+
+            //calculate reverse num
+            var reveseNum = 0;
+            while(num > 0){
+                reveseNum = reveseNum*10 + (num%10);
+                num = Math.floor(num/10);
+            }
+
+            //check if number is palindrome
+            var isPalindrome = (originalNum === reveseNum);
+
+            //check if number is armstrong
+            num = originalNum;
+            var power = num.toString().length;
+            var sum = 0;
+
+            while(num > 0){
+                var lastDigit = num % 10;
+                sum += lastDigit**power;
+                num = Math.floor(num / 10);
+            }
+
+            var isArmstrong = (sum === originalNum);
+
+            document.getElementById("output").innerHTML = "<h3>Result:</h3>" +
+                "<h3>Reversed number is " + reveseNum + "</h3>" +
+                "<h3>Is Number Palindrome: " + isPalindrome + "</h3>" +
+                "<h3>Is Number Armstrong: " + isArmstrong + "</h3>"
+            ;
+
+        }
+    </script>
+</body>
+</html>
