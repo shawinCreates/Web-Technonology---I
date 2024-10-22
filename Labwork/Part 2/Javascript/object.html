@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Sabin Neupane">
+    <title>Object and Constructor</title>
+</head>
+<body onload="displayPerson()">
+    <div id="display"></div>
+    <script type="text/javascript">
+        function Person(firstname, lastname) {
+            this.firstname = firstname;
+            this.lastname = lastname;
+
+            this.changeLastname = function(newlastname) {
+                this.lastname = newlastname;
+            };
+        }
+
+        var father = new Person("Shyam", "Karki");
+        var mother = new Person("Sita", "Acharya");
+
+        function displayPerson() {
+            document.getElementById("display").innerHTML = 
+                "<br>Before function call:<br>Father: " + father.firstname + " " + father.lastname + 
+                "<br>Mother: " + mother.firstname + " " + mother.lastname;
+
+            mother.changeLastname("Karki");
+
+            document.getElementById("display").innerHTML += 
+                "<br><br>After function call:<br>Father: " + father.firstname + " " + father.lastname + 
+                "<br>Mother: " + mother.firstname + " " + mother.lastname;
+        }
+    </script>
+</body>
+</html>
