@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Sabin Neupane">
+    <title>Associative Array Example</title>
+</head>
+<body>
+    <div id="output"></div>
+
+    <script type="text/javascript">
+        const fruits = {
+            "apple": 18,
+            "banana": 24,
+            "orange": 39,
+            "grapes": 44,
+            "mango" : 50
+        };
+
+        let output = "<h3>Fruits Inventory:</h3><ul>";
+        for (let key in fruits) {
+            if (fruits.hasOwnProperty(key)) { 
+                output += `<li>${key}: ${fruits[key]}</li>`;
+            }
+        }
+        output += "</ul>";
+
+        document.getElementById("output").innerHTML = output;
+    </script>
+</body>
+</html>
