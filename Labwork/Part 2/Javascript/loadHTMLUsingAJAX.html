@@ -21,17 +21,15 @@
         $(document).ready(function() {
             $("#loadContent").click(function() {
                 $.ajax({
-                    url: "content.html", // The file to load
+                    url: "content.html", 
                     method: "GET",
                     dataType: "html",
                     success: function(response, status, xhr) {
                         if (xhr.status === 200) {
-                            // Insert the file content into the div
                             $("#contentDiv").html(response);
                         }
                     },
                     error: function(xhr) {
-                        // Handle errors
                         if (xhr.status !== 200) {
                             $("#contentDiv").html("<p>Error loading content. Status: " + xhr.status + "</p>");
                         }
