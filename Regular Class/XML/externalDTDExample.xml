@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE university SYSTEM "university.dtd">
+<university>
+    <campus type="affiliated">
+        <name> Bhaktapur Multiple Campus </name>
+        <location> Dudhpati, Bhaktapur </location>
+        <number> 35 </number>
+        <accessible> Yes </accessible>
+    </campus>
+
+    <campus type="constituent">
+        <name> Chitwan Multiple Campus </name>
+        <location> Bharatpur, Chitwan </location>
+        <number> 24 </number>
+        <accessible> No </accessible>
+    </campus>
+</university>
