@@ -1,0 +1,7 @@
+<!ELEMENT university (campus+)>
+<!ELEMENT campus(name, location, number, accessible)>
+<!ATTLIST campus type CDATA #REQUIRED>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT location (#PCDATA)>
+<!ELEMENT number (#PCDATA)>
+<!ELEMENT accessible (#PCDATA)>
