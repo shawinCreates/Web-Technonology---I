@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE university [
+    <!ELEMENT univeresity (campus+)>
+    <!ELEMENT campus(name, location, nummber, accessible)>
+    <!ATTLIST campus type CDATA #REQUIRED>
+    <!ELEMENT name (#PCDATA)>
+    <!ELEMENT location (#PCDATA)>
+    <!ELEMENT number (#PCDATA)>
+    <!ELEMENT accessible (#PCDATA)>
+]>
+<university>
+    <campus type="affiliated">
+        <name> Bhaktapur Multiple Campus </name>
+        <location> Dudhpati, Bhaktapur </location>
+        <number> 35 </number>
+        <accessible> Yes </accessible>
+    </campus>
+
+    <campus type="constituent">
+        <name> Chitwan Multiple Campus </name>
+        <location> Bharatpur, Chitwan </location>
+        <number> 24 </number>
+        <accessible> No </accessible>
+    </campus>
+</university>
